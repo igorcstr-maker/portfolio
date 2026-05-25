@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jornada do Produtor · Igor de Castro Cunha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #faf9f7;
+      --bg-s:      #f4f2ef;
+      --text:      #1a1a1a;
+      --text-2:    #6b6460;
+      --accent:    #b5693a;
+      --accent-lt: #e8d5c4;
+      --border:    #e0dbd5;
+      --font-d:    'Cormorant Garamond', Georgia, serif;
+      --font-b:    'DM Sans', system-ui, sans-serif;
+      --max:       760px;
+      --max-wide:  1100px;
+      --ease:      0.32s cubic-bezier(.4,0,.2,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 2.5rem;
+      transition: padding var(--ease), background var(--ease), border-bottom var(--ease);
+    }
+    nav.scrolled {
+      padding: 1rem 2.5rem;
+      background: rgba(250,249,247,.94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+    .nav-logo {
+      font-family: var(--font-d);
+      font-weight: 500;
+      font-size: 1.05rem;
+      letter-spacing: .02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: .78rem;
+      font-weight: 400;
+      letter-spacing: .06em;
+      color: var(--text-2);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      transition: color var(--ease), gap var(--ease);
+    }
+    .nav-back:hover { color: var(--accent); gap: .8rem; }
+    .nav-back span { display: inline-block; transition: transform var(--ease); }
+    .nav-back:hover span { transform: translateX(-3px); }
+
+    /* ── HERO ── */
+    .case-hero {
+      padding: 10rem 2.5rem 6rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-wrap { max-width: var(--max-wide); margin: 0 auto; }
+    .hero-tag {
+      display: inline-block;
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(181,105,58,.1);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 1.75rem;
+    }
+    .hero-title {
+      font-family: var(--font-d);
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      margin-bottom: 2rem;
+      max-width: 780px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: .3rem; }
+    .meta-label {
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-2);
+    }
+    .meta-value { font-size: .88rem; color: var(--text); }
+
+    /* ── BODY CONTENT ── */
+    .case-body {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+    }
+
+    /* Sections */
+    .cs { margin-bottom: 5rem; }
+    .cs-label {
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .cs-title {
+      font-family: var(--font-d);
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .cs p {
+      font-size: .95rem;
+      color: var(--text-2);
+      line-height: 1.9;
+      margin-bottom: 1.25rem;
+    }
+    .cs p:last-of-type { margin-bottom: 0; }
+    .cs strong { color: var(--text); font-weight: 400; }
+
+    /* Divider */
+    .cs-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 5rem 0;
+    }
+
+    /* Quote */
+    .cs-quote {
+      margin: 2.5rem 0;
+      padding: 1.5rem 1.75rem;
+      border-left: 3px solid var(--accent-lt);
+      background: rgba(232,213,196,.22);
+    }
+    .cs-quote p {
+      font-family: var(--font-d);
+      font-size: 1.25rem !important;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text) !important;
+      line-height: 1.5 !important;
+      margin: 0 !important;
+    }
+    .cs-quote cite {
+      display: block;
+      font-family: var(--font-b);
+      font-style: normal;
+      font-size: .72rem;
+      color: var(--text-2);
+      margin-top: .75rem;
+      letter-spacing: .06em;
+    }
+
+    /* Framework steps used */
+    .fw-used {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+    .fw-used-step {
+      background: var(--bg);
+      padding: 1.25rem;
+    }
+    .fw-used-step.active { background: var(--bg-s); }
+    .fw-used-num {
+      font-family: var(--font-d);
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--border);
+      margin-bottom: .4rem;
+    }
+    .fw-used-step.active .fw-used-num { color: var(--accent); }
+    .fw-used-name {
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-2);
+    }
+    .fw-used-step.active .fw-used-name { color: var(--text); }
+
+    /* Findings list */
+    .findings { display: flex; flex-direction: column; gap: 0; margin: 1.5rem 0; }
+    .finding {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .finding:first-child { border-top: 1px solid var(--border); }
+    .finding-num {
+      font-family: var(--font-d);
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--accent-lt);
+      line-height: 1;
+      min-width: 2rem;
+      text-align: right;
+    }
+    .finding-text {
+      font-size: .9rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      padding-top: .15rem;
+    }
+    .finding-text strong { color: var(--text); font-weight: 400; }
+
+    /* Image placeholder */
+    .img-slot {
+      background: var(--bg-s);
+      border: 1.5px dashed var(--border);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .75rem;
+      padding: 3rem 2rem;
+      text-align: center;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+    .img-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      display: none;
+    }
+    .img-slot-icon { font-size: 1.5rem; opacity: .35; }
+    .img-slot-label {
+      font-size: .72rem;
+      color: var(--text-2);
+      letter-spacing: .06em;
+    }
+    .img-slot-note {
+      font-size: .65rem;
+      color: var(--border);
+      margin-top: .25rem;
+    }
+
+    .img-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .img-grid .img-slot { min-height: 200px; }
+    .img-grid .img-slot.wide {
+      grid-column: 1 / -1;
+      min-height: 260px;
+    }
+
+    /* Impact row */
+    .impact-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .impact-card {
+      background: var(--bg-s);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+    }
+    .impact-label {
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-2);
+      margin-bottom: .5rem;
+    }
+    .impact-value {
+      font-family: var(--font-d);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1.1;
+      margin-bottom: .4rem;
+    }
+    .impact-desc { font-size: .8rem; color: var(--text-2); line-height: 1.6; }
+
+    /* Full-width image area */
+    .img-full {
+      width: calc(100% + 5rem);
+      margin-left: -2.5rem;
+      min-height: 380px;
+      background: var(--bg-s);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: .75rem;
+      padding: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    /* ── NEXT/PREV ── */
+    .case-nav {
+      max-width: var(--max-wide);
+      margin: 0 auto;
+      padding: 4rem 2.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+    .case-nav-link {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      text-decoration: none;
+      color: inherit;
+      max-width: 320px;
+    }
+    .case-nav-dir {
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-2);
+    }
+    .case-nav-title {
+      font-family: var(--font-d);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text);
+      transition: color var(--ease);
+      line-height: 1.25;
+    }
+    .case-nav-link:hover .case-nav-title { color: var(--accent); }
+    .case-nav-link.right { text-align: right; }
+    .back-all {
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      color: var(--text-2);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color var(--ease), border-color var(--ease);
+    }
+    .back-all:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .08s; }
+    .d2 { transition-delay: .16s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .case-hero { padding: 8rem 1.5rem 4rem; }
+      .case-body { padding: 4rem 1.5rem; }
+      .fw-used { grid-template-columns: repeat(2, 1fr); }
+      .img-grid { grid-template-columns: 1fr; }
+      .impact-row { grid-template-columns: 1fr; }
+      .img-full { width: calc(100% + 3rem); margin-left: -1.5rem; }
+      .case-nav { flex-direction: column; align-items: flex-start; }
+      .case-nav-link.right { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="index.html">Igor de Castro Cunha</a>
+  <a class="nav-back" href="index.html#cases"><span>←</span> Voltar para Cases</a>
+</nav>
+
+<!-- HERO -->
+<header class="case-hero">
+  <div class="hero-wrap">
+    <span class="hero-tag">Agro · Blueprint de Serviço · 2022</span>
+    <h1 class="hero-title">Jornada do Produtor de Soja e Milho</h1>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Empresa</span>
+        <span class="meta-value">Nutrien Soluções Agrícolas</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Meu papel</span>
+        <span class="meta-value">UX Researcher — Lead</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Métodos</span>
+        <span class="meta-value">Campo · Entrevistas · Blueprint · Jornada</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Estados</span>
+        <span class="meta-value">GO · TO · MS</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="case-body">
+
+  <!-- Contexto -->
+  <section class="cs reveal">
+    <p class="cs-label">Contexto</p>
+    <h2 class="cs-title">O que motivou a pesquisa</h2>
+    <p>
+      A Nutrien é uma das maiores empresas de insumos agrícolas do mundo. No Brasil, o time de
+      Customer Experience precisava <strong>entender a jornada completa do produtor rural</strong>
+      — do crédito para compra dos insumos até a venda da safra — para identificar onde a marca
+      poderia criar mais valor e fortalecer o relacionamento com o produtor.
+    </p>
+    <p>
+      O projeto nasceu da necessidade de ir além dos dados de CRM: saber o que os números diziam,
+      mas não <em>por que</em> o produtor tomava cada decisão. Era preciso ir ao campo.
+    </p>
+  </section>
+
+  <!-- Desafio -->
+  <section class="cs reveal">
+    <p class="cs-label">O Desafio</p>
+    <h2 class="cs-title">Como mapear uma jornada de 12 meses?</h2>
+    <p>
+      O ciclo produtivo da soja e do milho dura praticamente o ano inteiro — cada etapa com
+      seus atores, decisões e pontos de contato. A pergunta central era:
+    </p>
+    <div class="cs-quote">
+      <p>"Em quais momentos da jornada do produtor a Nutrien pode gerar mais valor — e quais momentos estamos perdendo?"</p>
+    </div>
+    <p>
+      O desafio metodológico era capturar a complexidade dessa jornada sem simplificá-la demais:
+      as <strong>compras planejadas e não planejadas</strong>, os gatilhos de decisão, os atores
+      envolvidos (agrônomo, consultor, financiador), e as diferenças regionais entre Goiás,
+      Tocantins e Mato Grosso do Sul.
+    </p>
+  </section>
+
+  <hr class="cs-divider">
+
+  <!-- Framework aplicado -->
+  <section class="cs reveal">
+    <p class="cs-label">Como trabalhei</p>
+    <h2 class="cs-title">O framework aplicado a este projeto</h2>
+    <p>
+      Todas as etapas do meu framework foram percorridas neste projeto. O kickoff com
+      stakeholders da área de CX e Marketing revelou uma Matriz CSD rica, com muitas
+      <em>suposições</em> sobre o produtor que precisavam ser testadas em campo.
+    </p>
+    <div class="fw-used">
+      <div class="fw-used-step active">
+        <div class="fw-used-num">01</div>
+        <p class="fw-used-name">Demanda</p>
+      </div>
+      <div class="fw-used-step active">
+        <div class="fw-used-num">02</div>
+        <p class="fw-used-name">Matriz CSD</p>
+      </div>
+      <div class="fw-used-step active">
+        <div class="fw-used-num">03</div>
+        <p class="fw-used-name">Plano</p>
+      </div>
+      <div class="fw-used-step active">
+        <div class="fw-used-num">04</div>
+        <p class="fw-used-name">Metodologia</p>
+      </div>
+      <div class="fw-used-step active">
+        <div class="fw-used-num">05</div>
+        <p class="fw-used-name">Análise</p>
+      </div>
+      <div class="fw-used-step active">
+        <div class="fw-used-num">06</div>
+        <p class="fw-used-name">Entrega</p>
+      </div>
+    </div>
+    <p>
+      O plano de pesquisa definiu a pesquisa de campo como método principal —
+      a única forma de capturar a realidade do produtor em seu contexto real,
+      nas fazendas, nos escritórios de cooperativas, nas conversar informais.
+    </p>
+  </section>
+
+  <!-- Pesquisa -->
+  <section class="cs reveal">
+    <p class="cs-label">Execução</p>
+    <h2 class="cs-title">A pesquisa de campo</h2>
+    <p>
+      Viajei para <strong>três estados</strong> — Goiás, Tocantins e Mato Grosso do Sul —
+      para realizar entrevistas em profundidade com produtores de soja e milho. As conversas
+      foram conduzidas com roteiro semiestruturado, adaptado para o vocabulário e o ritmo
+      de cada produtor.
+    </p>
+    <p>
+      O objetivo era entender as quatro macroetapas identificadas pelo negócio — Crédito e
+      Compra → Plantio → Colheita → Venda — mas sem deixar que essa estrutura limitasse o
+      que o produtor queria contar. Muitas das melhores descobertas vieram de momentos fora
+      do roteiro.
+    </p>
+
+    <!-- Image: fotos de campo -->
+    <div class="img-grid" style="margin-top: 2rem;">
+      <div class="img-slot">
+        <span class="img-slot-icon">📷</span>
+        <span class="img-slot-label">Foto de campo — Goiás</span>
+        <span class="img-slot-note">Adicione uma imagem aqui</span>
+      </div>
+      <div class="img-slot">
+        <span class="img-slot-icon">📷</span>
+        <span class="img-slot-label">Foto de campo — Mato Grosso do Sul</span>
+        <span class="img-slot-note">Adicione uma imagem aqui</span>
+      </div>
+      <div class="img-slot wide">
+        <span class="img-slot-icon">🗺️</span>
+        <span class="img-slot-label">Roteiro de entrevista / notas de campo</span>
+        <span class="img-slot-note">Adicione um print do roteiro ou das notas aqui</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="cs-divider">
+
+  <!-- Blueprint -->
+  <section class="cs reveal">
+    <p class="cs-label">Entregável Principal</p>
+    <h2 class="cs-title">O Blueprint de Serviço</h2>
+    <p>
+      O principal entregável do projeto foi um <strong>Blueprint de Serviço</strong> detalhado,
+      com macro e micro etapas da jornada do produtor. O documento tornou visível o que antes
+      estava fragmentado em silos diferentes da empresa.
+    </p>
+    <p>
+      O blueprint incluiu: etapas da jornada, momentos de compra e venda,
+      pontos de contato direto e indireto com a marca, atores envolvidos em cada etapa
+      (agrônomos, consultores, cooperativas, financiadores), sentimentos, dores e
+      insights por fase.
+    </p>
+  </section>
+
+</main>
+
+<!-- Blueprint full-width image -->
+<div class="img-full reveal">
+  <span class="img-slot-icon" style="font-size:2rem; opacity:.3">📋</span>
+  <span class="img-slot-label" style="font-size:.85rem; color:var(--text-2)">Blueprint de Serviço — Jornada do Produtor</span>
+  <span class="img-slot-note" style="font-size:.72rem; color:var(--border)">Adicione o print do blueprint aqui (imagem panorâmica recomendada)</span>
+</div>
+
+<main class="case-body" style="padding-top: 0;">
+
+  <!-- Achados -->
+  <section class="cs reveal">
+    <p class="cs-label">Principais Achados</p>
+    <h2 class="cs-title">O que o campo revelou</h2>
+    <p>
+      A pesquisa gerou achados que mudaram a forma como o time enxergava o produtor.
+      Os mais relevantes:
+    </p>
+    <div class="findings">
+      <div class="finding">
+        <span class="finding-num">01</span>
+        <p class="finding-text">
+          <strong>Compras não planejadas são mais frequentes do que o esperado.</strong>
+          Além das compras programadas (defensivos, fertilizantes antes do plantio),
+          identificamos uma série de compras de oportunidade — gatilhadas por preço,
+          disponibilidade de estoque ou indicação do agrônomo — que a empresa não
+          estava capitalizando.
+        </p>
+      </div>
+      <div class="finding">
+        <span class="finding-num">02</span>
+        <p class="finding-text">
+          <strong>O agrônomo é o ator mais influente na decisão de compra.</strong>
+          Em quase todos os relatos, o agrônomo funcionava como filtro de confiança
+          para marcas e produtos — a relação com esse ator era subutilizada pela empresa.
+        </p>
+      </div>
+      <div class="finding">
+        <span class="finding-num">03</span>
+        <p class="finding-text">
+          <strong>Existem múltiplos momentos de entrada na jornada.</strong>
+          O blueprint revelou que a empresa poderia se posicionar em pelo menos
+          6 momentos distintos ao longo do ano agrícola — dos quais apenas 2 eram
+          trabalhados ativamente pelo time comercial.
+        </p>
+      </div>
+      <div class="finding">
+        <span class="finding-num">04</span>
+        <p class="finding-text">
+          <strong>As diferenças regionais são significativas.</strong>
+          O produtor de Tocantins opera em um contexto muito diferente do de Mato Grosso
+          do Sul — o blueprint precisou ser segmentado por região para refletir
+          essas diferenças.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artifacts -->
+  <section class="cs reveal">
+    <p class="cs-label">Artefatos do Projeto</p>
+    <h2 class="cs-title">Documentação e entregas</h2>
+
+    <div class="img-grid">
+      <div class="img-slot">
+        <span class="img-slot-icon">👤</span>
+        <span class="img-slot-label">Personas do Produtor</span>
+        <span class="img-slot-note">Adicione print das personas aqui</span>
+      </div>
+      <div class="img-slot">
+        <span class="img-slot-icon">📊</span>
+        <span class="img-slot-label">Matriz CSD do Projeto</span>
+        <span class="img-slot-note">Adicione print da Matriz CSD aqui</span>
+      </div>
+      <div class="img-slot">
+        <span class="img-slot-icon">🗺️</span>
+        <span class="img-slot-label">Jornada Emocional</span>
+        <span class="img-slot-note">Adicione print da jornada emocional aqui</span>
+      </div>
+      <div class="img-slot">
+        <span class="img-slot-icon">📋</span>
+        <span class="img-slot-label">Apresentação de Readout</span>
+        <span class="img-slot-note">Adicione print do readout para stakeholders aqui</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impacto -->
+  <section class="cs reveal">
+    <p class="cs-label">Impacto</p>
+    <h2 class="cs-title">O que a pesquisa gerou para o negócio</h2>
+    <p>
+      O blueprint se tornou um documento de referência para as áreas de CX, Marketing e
+      Comercial. Os principais resultados gerados a partir dos achados:
+    </p>
+    <div class="impact-row">
+      <div class="impact-card">
+        <p class="impact-label">Momentos de oportunidade mapeados</p>
+        <p class="impact-value">+4 novos</p>
+        <p class="impact-desc">Pontos de entrada na jornada do produtor identificados além dos 2 já trabalhados pelo time comercial.</p>
+      </div>
+      <div class="impact-card">
+        <p class="impact-label">Segmentação regional</p>
+        <p class="impact-value">3 perfis</p>
+        <p class="impact-desc">Perfis de produtor distintos por região (GO, TO, MS) que passaram a orientar estratégias específicas.</p>
+      </div>
+    </div>
+    <p>
+      Adicione aqui outros resultados de negócio que você acompanhou após a entrega
+      da pesquisa — métricas de conversão, NPS, mudanças em produto ou comunicação.
+    </p>
+  </section>
+
+  <!-- Aprendizados -->
+  <section class="cs reveal">
+    <p class="cs-label">Reflexões</p>
+    <h2 class="cs-title">O que aprendi nesse projeto</h2>
+    <p>
+      Pesquisa de campo no agronegócio exige <strong>adaptação constante</strong>. O produtor
+      fala no próprio ritmo, usa linguagem técnica específica e testa, o tempo todo, se você
+      realmente entende o contexto dele. Ir ao campo com humildade é um pré-requisito.
+    </p>
+    <p>
+      O maior aprendizado foi perceber que <strong>a jornada do cliente raramente tem a forma
+      que o negócio imagina</strong>. O blueprint revelou uma realidade muito mais rica — e
+      mais cheia de oportunidades — do que a que estava no mapa antes da pesquisa.
+    </p>
+    <p>
+      <em>Adicione aqui outras reflexões pessoais sobre o projeto — o que faria diferente,
+      o que te surpreendeu, o que levou para projetos futuros.</em>
+    </p>
+  </section>
+
+</main>
+
+<!-- CASE NAV -->
+<div class="case-nav">
+  <div></div>
+  <a class="back-all" href="index.html#cases">← Todos os cases</a>
+  <a class="case-nav-link right" href="case-healthtech.html">
+    <span class="case-nav-dir">Próximo case →</span>
+    <span class="case-nav-title">Mecanismos de Inércia em Distúrbios do Sono</span>
+  </a>
+</div>
+
+<script>
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), { passive: true });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

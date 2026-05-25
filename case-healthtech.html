@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Distúrbios do Sono · Igor de Castro Cunha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #faf9f7;
+      --bg-s:      #f4f2ef;
+      --text:      #1a1a1a;
+      --text-2:    #6b6460;
+      --accent:    #b5693a;
+      --accent-lt: #e8d5c4;
+      --border:    #e0dbd5;
+      --font-d:    'Cormorant Garamond', Georgia, serif;
+      --font-b:    'DM Sans', system-ui, sans-serif;
+      --max:       760px;
+      --max-wide:  1100px;
+      --ease:      0.32s cubic-bezier(.4,0,.2,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 2.5rem;
+      transition: padding var(--ease), background var(--ease), border-bottom var(--ease);
+    }
+    nav.scrolled {
+      padding: 1rem 2.5rem;
+      background: rgba(250,249,247,.94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+    .nav-logo {
+      font-family: var(--font-d);
+      font-weight: 500;
+      font-size: 1.05rem;
+      letter-spacing: .02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: .78rem;
+      font-weight: 400;
+      letter-spacing: .06em;
+      color: var(--text-2);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      transition: color var(--ease), gap var(--ease);
+    }
+    .nav-back:hover { color: var(--accent); gap: .8rem; }
+    .nav-back span { display: inline-block; transition: transform var(--ease); }
+    .nav-back:hover span { transform: translateX(-3px); }
+
+    /* ── HERO ── */
+    .case-hero {
+      padding: 10rem 2.5rem 6rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-wrap { max-width: var(--max-wide); margin: 0 auto; }
+    .hero-tag {
+      display: inline-block;
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(181,105,58,.1);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 1.75rem;
+    }
+    .hero-title {
+      font-family: var(--font-d);
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      margin-bottom: 2rem;
+      max-width: 820px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: .3rem; }
+    .meta-label {
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-2);
+    }
+    .meta-value { font-size: .88rem; color: var(--text); }
+
+    /* ── BODY ── */
+    .case-body {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+    }
+    .cs { margin-bottom: 5rem; }
+    .cs-label {
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .cs-title {
+      font-family: var(--font-d);
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .cs p {
+      font-size: .95rem;
+      color: var(--text-2);
+      line-height: 1.9;
+      margin-bottom: 1.25rem;
+    }
+    .cs p:last-of-type { margin-bottom: 0; }
+    .cs strong { color: var(--text); font-weight: 400; }
+
+    .cs-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 5rem 0;
+    }
+    .cs-quote {
+      margin: 2.5rem 0;
+      padding: 1.5rem 1.75rem;
+      border-left: 3px solid var(--accent-lt);
+      background: rgba(232,213,196,.22);
+    }
+    .cs-quote p {
+      font-family: var(--font-d);
+      font-size: 1.25rem !important;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text) !important;
+      line-height: 1.5 !important;
+      margin: 0 !important;
+    }
+
+    /* Methods table */
+    .methods-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: .82rem;
+    }
+    .methods-table th {
+      text-align: left;
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-2);
+      padding: .75rem 1rem .75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .methods-table td {
+      padding: .9rem 1rem .9rem 0;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+    .methods-table td:first-child { color: var(--text); font-weight: 400; }
+    .methods-table td strong { color: var(--accent); font-weight: 500; }
+    tr:last-child td { border-bottom: none; }
+
+    /* Hypotheses */
+    .hyp-list { display: flex; flex-direction: column; gap: 1.25rem; margin: 2rem 0; }
+    .hyp {
+      background: var(--bg-s);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent-lt);
+      padding: 1.25rem 1.5rem;
+    }
+    .hyp-label {
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .5rem;
+    }
+    .hyp p {
+      font-size: .85rem !important;
+      color: var(--text-2) !important;
+      line-height: 1.7 !important;
+      margin: 0 !important;
+    }
+
+    /* Findings */
+    .findings { display: flex; flex-direction: column; }
+    .finding {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .finding:first-child { border-top: 1px solid var(--border); }
+    .finding-num {
+      font-family: var(--font-d);
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--accent-lt);
+      line-height: 1;
+      min-width: 2rem;
+      text-align: right;
+    }
+    .finding-text {
+      font-size: .9rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      padding-top: .15rem;
+    }
+    .finding-text strong { color: var(--text); font-weight: 400; }
+
+    /* Image slots */
+    .img-slot {
+      background: var(--bg-s);
+      border: 1.5px dashed var(--border);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .75rem;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .img-slot-icon { font-size: 1.5rem; opacity: .35; }
+    .img-slot-label { font-size: .72rem; color: var(--text-2); letter-spacing: .06em; }
+    .img-slot-note { font-size: .65rem; color: var(--border); margin-top: .25rem; }
+
+    .img-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .img-grid .img-slot { min-height: 200px; }
+    .img-grid .img-slot.wide { grid-column: 1 / -1; min-height: 260px; }
+
+    /* Timeline */
+    .timeline { display: flex; flex-direction: column; gap: 0; margin: 2rem 0; }
+    .tl-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 1.5rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .tl-item:first-child { border-top: 1px solid var(--border); }
+    .tl-period { font-size: .72rem; color: var(--accent); font-weight: 500; letter-spacing: .04em; padding-top: .1rem; }
+    .tl-desc { font-size: .85rem; color: var(--text-2); line-height: 1.65; }
+    .tl-desc strong { color: var(--text); font-weight: 400; }
+
+    /* Impact */
+    .impact-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .impact-card {
+      background: var(--bg-s);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+    }
+    .impact-label {
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-2);
+      margin-bottom: .5rem;
+    }
+    .impact-value {
+      font-family: var(--font-d);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1.1;
+      margin-bottom: .4rem;
+    }
+    .impact-desc { font-size: .8rem; color: var(--text-2); line-height: 1.6; }
+
+    /* Full-width image */
+    .img-full {
+      width: calc(100% + 5rem);
+      margin-left: -2.5rem;
+      min-height: 380px;
+      background: var(--bg-s);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: .75rem;
+      padding: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    /* Case nav */
+    .case-nav {
+      max-width: var(--max-wide);
+      margin: 0 auto;
+      padding: 4rem 2.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+    .case-nav-link {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      text-decoration: none;
+      color: inherit;
+      max-width: 320px;
+    }
+    .case-nav-dir {
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-2);
+    }
+    .case-nav-title {
+      font-family: var(--font-d);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text);
+      transition: color var(--ease);
+      line-height: 1.25;
+    }
+    .case-nav-link:hover .case-nav-title { color: var(--accent); }
+    .back-all {
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      color: var(--text-2);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color var(--ease), border-color var(--ease);
+    }
+    .back-all:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .08s; }
+    .d2 { transition-delay: .16s; }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .case-hero { padding: 8rem 1.5rem 4rem; }
+      .case-body { padding: 4rem 1.5rem; }
+      .img-grid { grid-template-columns: 1fr; }
+      .impact-row { grid-template-columns: 1fr; }
+      .img-full { width: calc(100% + 3rem); margin-left: -1.5rem; }
+      .case-nav { flex-direction: column; align-items: flex-start; }
+      .tl-item { grid-template-columns: 80px 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="index.html">Igor de Castro Cunha</a>
+  <a class="nav-back" href="index.html#cases"><span>←</span> Voltar para Cases</a>
+</nav>
+
+<!-- HERO -->
+<header class="case-hero">
+  <div class="hero-wrap">
+    <span class="hero-tag">Healthtech · Pesquisa Descritiva Mista · 2025</span>
+    <h1 class="hero-title">Mecanismos de Inércia e Gatilhos de Diagnóstico em Distúrbios do Sono</h1>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Contexto</span>
+        <span class="meta-value">Produto de Conversão de Exames</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Fase do Produto</span>
+        <span class="meta-value">Maturidade</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Tipo de Pesquisa</span>
+        <span class="meta-value">Descritiva · Mista (quali + quanti)</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Métodos</span>
+        <span class="meta-value">Entrevistas · Diary Study · Campo · Survey · Analytics</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- BODY -->
+<main class="case-body">
+
+  <!-- Contexto -->
+  <section class="cs reveal">
+    <p class="cs-label">Contexto</p>
+    <h2 class="cs-title">O produto em fase de maturidade — e um gargalo invisível</h2>
+    <p>
+      O produto de Conversão de Exames de uma healthtech estava em fase de maturidade e
+      enfrentava um gargalo de conversão que <strong>não era puramente comercial</strong>:
+      o problema ocorria antes mesmo do contato do paciente com o sistema de saúde.
+    </p>
+    <p>
+      Pacientes com sintomas de apneia e distúrbios do sono reconheciam os sintomas, mas
+      não convertiam esse reconhecimento em busca ativa por diagnóstico. Normalização,
+      postergação, falta de gatilho — o problema estava no comportamento, não no produto.
+    </p>
+    <div class="cs-quote">
+      <p>"Como podemos entender o que leva uma pessoa a buscar tratamento para distúrbios do sono — e o que a mantém em inércia antes disso?"</p>
+    </div>
+  </section>
+
+  <!-- Desafio -->
+  <section class="cs reveal">
+    <p class="cs-label">O Desafio</p>
+    <h2 class="cs-title">Mapear o invisível: a inércia antes da conversão</h2>
+    <p>
+      Indivíduos com sinais clínicos de distúrbios do sono frequentemente percebem os
+      sintomas, mas os atribuem a outros fatores — estresse, idade, rotina. Convivem
+      com a condição até que um <strong>evento externo ou um limiar de sofrimento</strong>
+      os force a agir.
+    </p>
+    <p>
+      Mapear os mecanismos dessa inércia e os gatilhos que a rompem era estratégico para
+      orientar a estratégia de produto — criando pontos de intervenção mais eficazes na
+      jornada do paciente antes do primeiro contato com o sistema de saúde.
+    </p>
+  </section>
+
+  <hr class="cs-divider">
+
+  <!-- Plano de pesquisa -->
+  <section class="cs reveal">
+    <p class="cs-label">Plano de Pesquisa</p>
+    <h2 class="cs-title">Triangulação de 5 métodos</h2>
+    <p>
+      A pesquisa adotou triangulação metodológica combinando dados qualitativos e quantitativos:
+      os métodos qualitativos revelam o <em>por que</em> e o <em>como</em> da inércia;
+      os quantitativos revelam magnitude e distribuição. A combinação reduz viés de método
+      único e aumenta a confiança nas conclusões.
+    </p>
+    <table class="methods-table">
+      <thead>
+        <tr>
+          <th>Método</th>
+          <th>N / Escopo</th>
+          <th>Objetivo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Entrevista em Profundidade</td>
+          <td><strong>12</strong> participantes, 60–75 min</td>
+          <td>Explorar narrativas, mecanismos de inércia, gatilhos e jornada subjetiva</td>
+        </tr>
+        <tr>
+          <td>Diary Study</td>
+          <td><strong>6</strong> participantes, 14 dias</td>
+          <td>Capturar experiência in situ — sintomas, emoções e decisões em contexto real</td>
+        </tr>
+        <tr>
+          <td>Pesquisa Contextual / Campo</td>
+          <td><strong>4</strong> participantes</td>
+          <td>Observar comportamento e ambiente real — clínica, domicílio</td>
+        </tr>
+        <tr>
+          <td>Survey</td>
+          <td><strong>n ≥ 150</strong> (remoto)</td>
+          <td>Validar padrões em escala; medir distribuição de barreiras e gatilhos</td>
+        </tr>
+        <tr>
+          <td>Analytics</td>
+          <td>Base de dados do produto</td>
+          <td>Identificar padrões de abandono de funil e comportamento de navegação</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Image: plano de pesquisa -->
+    <div class="img-slot" style="margin-top: 1.5rem; min-height: 240px;">
+      <span class="img-slot-icon">📋</span>
+      <span class="img-slot-label">Plano de Pesquisa — documento completo</span>
+      <span class="img-slot-note">Adicione print do plano de pesquisa entregue aos stakeholders</span>
+    </div>
+  </section>
+
+  <!-- Cronograma -->
+  <section class="cs reveal">
+    <p class="cs-label">Cronograma</p>
+    <h2 class="cs-title">10 semanas de pesquisa</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-period">Sem. 1–2</span>
+        <p class="tl-desc"><strong>Preparação</strong> — Roteiros, TCLE, protocolo ético, configuração do diary study, survey, briefing com stakeholders.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-period">Sem. 2–3</span>
+        <p class="tl-desc"><strong>Recrutamento</strong> — Screening, agendamento de entrevistas, onboarding do diary study, lançamento do survey.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-period">Sem. 3–5</span>
+        <p class="tl-desc"><strong>Coleta qualitativa</strong> — 12 entrevistas em profundidade (2–3/semana), 4 sessões de pesquisa contextual, acompanhamento do diary study.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-period">Sem. 4–6</span>
+        <p class="tl-desc"><strong>Diary study ativo</strong> — 14 dias por participante, prompts diários via WhatsApp, exportação de dados ao final.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-period">Sem. 5–6</span>
+        <p class="tl-desc"><strong>Coleta quantitativa</strong> — Coleta do survey (n ≥ 150), extração de analytics, análise exploratória.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-period">Sem. 7–8</span>
+        <p class="tl-desc"><strong>Análise e síntese</strong> — Análise temática das entrevistas (Braun & Clarke), síntese dos diários, análise estatística do survey, triangulação.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-period">Sem. 9–10</span>
+        <p class="tl-desc"><strong>Readout</strong> — Relatório final, apresentação executiva, workshop de readout com stakeholders.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="cs-divider">
+
+  <!-- Hipóteses -->
+  <section class="cs reveal">
+    <p class="cs-label">Hipóteses de Pesquisa</p>
+    <h2 class="cs-title">Pressupostos a explorar</h2>
+    <p>
+      Por ser pesquisa descritiva, as hipóteses abaixo são pressupostos a explorar —
+      não assertivas a confirmar ou refutar. Elas orientaram o roteiro e os eixos de análise.
+    </p>
+    <div class="hyp-list">
+      <div class="hyp">
+        <p class="hyp-label">H1 — Normalização adaptativa</p>
+        <p>Se o indivíduo convive com os sintomas por mais de 12 meses, tende a reclassificá-los como "meu jeito de ser" — reduzindo a urgência de buscar diagnóstico.</p>
+      </div>
+      <div class="hyp">
+        <p class="hyp-label">H2 — Gatilho social como principal ativador</p>
+        <p>Se uma pessoa próxima (parceiro, familiar ou médico) expressa preocupação com os sintomas, a probabilidade de buscar diagnóstico aumenta significativamente.</p>
+      </div>
+      <div class="hyp">
+        <p class="hyp-label">H3 — Barreira de acesso subestimada</p>
+        <p>Se o indivíduo não conhece o fluxo para realizar o exame de sono, a intenção não se converte em ação — o custo cognitivo supera a motivação inicial.</p>
+      </div>
+      <div class="hyp">
+        <p class="hyp-label">H4 — Limiares de sofrimento como gatilho interno</p>
+        <p>Se o nível de impacto diurno ultrapassa um limiar percebido, o indivíduo se torna mais receptivo a intervenções e à busca por diagnóstico.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Perfil / Recrutamento -->
+  <section class="cs reveal">
+    <p class="cs-label">Recrutamento</p>
+    <h2 class="cs-title">Quem participou da pesquisa</h2>
+    <p>
+      O perfil-alvo foram <strong>adultos sintomáticos não diagnosticados</strong> de distúrbios
+      do sono — indivíduos que relatavam pelo menos 2 sintomas (ronco habitual, sonolência
+      diurna excessiva, acordar cansado, etc.) mas nunca haviam realizado polissonografia
+      ou consulta com especialista em sono.
+    </p>
+    <p>
+      Faixa etária de 25 a 70 anos, preferencialmente em regiões urbanas (SP, RJ, BH).
+      O recrutamento usou redes sociais, comunidades de saúde e snowball sampling.
+      Todos os participantes assinaram TCLE detalhado, com conformidade à LGPD.
+    </p>
+
+    <div class="img-grid">
+      <div class="img-slot">
+        <span class="img-slot-icon">📋</span>
+        <span class="img-slot-label">Screener de Recrutamento</span>
+        <span class="img-slot-note">Adicione print do formulário de triagem aqui</span>
+      </div>
+      <div class="img-slot">
+        <span class="img-slot-icon">📄</span>
+        <span class="img-slot-label">TCLE — Termo de Consentimento</span>
+        <span class="img-slot-note">Adicione print do TCLE (com dados removidos) aqui</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Jornada full-width -->
+<div class="img-full reveal">
+  <span class="img-slot-icon" style="font-size:2rem; opacity:.3">🗺️</span>
+  <span class="img-slot-label" style="font-size:.85rem; color:var(--text-2)">Mapa da Jornada Emocional do Paciente — da percepção ao diagnóstico</span>
+  <span class="img-slot-note" style="font-size:.72rem; color:var(--border)">Adicione o mapa de jornada aqui (imagem panorâmica recomendada)</span>
+</div>
+
+<main class="case-body" style="padding-top: 0;">
+
+  <!-- Análise -->
+  <section class="cs reveal">
+    <p class="cs-label">Análise</p>
+    <h2 class="cs-title">Como os dados foram tratados</h2>
+    <p>
+      Para os dados qualitativos, foi adotada a <strong>Análise Temática Reflexiva</strong>
+      (Braun & Clarke, 2019): familiarização, codificação aberta, agrupamento em temas,
+      revisão, definição e redação integrada aos dados. Toda codificação foi auditável —
+      com log de decisões analíticas.
+    </p>
+    <p>
+      Para os dados quantitativos: estatística descritiva, análise de clusters por estágio
+      de prontidão (modelo Prochaska), correlações entre score ESS, STOP-BANG e intenção
+      de buscar diagnóstico. Analytics: análise de funil, heatmaps e palavras-chave de entrada.
+    </p>
+    <p>
+      A <strong>triangulação metodológica</strong> foi realizada em matriz de convergência:
+      para cada achado qualitativo relevante, verificação de suporte ou contradição nos dados
+      quantitativos. Divergências foram documentadas como indicadoras de heterogeneidade
+      do fenômeno.
+    </p>
+
+    <div class="img-grid">
+      <div class="img-slot wide">
+        <span class="img-slot-icon">🔍</span>
+        <span class="img-slot-label">Affinity Map / Codificação Temática</span>
+        <span class="img-slot-note">Adicione print da análise no Dovetail, ATLAS.ti ou Notion aqui</span>
+      </div>
+      <div class="img-slot">
+        <span class="img-slot-icon">📊</span>
+        <span class="img-slot-label">Dashboard do Survey</span>
+        <span class="img-slot-note">Adicione print dos resultados quantitativos aqui</span>
+      </div>
+      <div class="img-slot">
+        <span class="img-slot-icon">📈</span>
+        <span class="img-slot-label">Análise de Funil — Analytics</span>
+        <span class="img-slot-note">Adicione print do funil de conversão aqui</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principais Achados -->
+  <section class="cs reveal">
+    <p class="cs-label">Principais Achados</p>
+    <h2 class="cs-title">O que a pesquisa revelou</h2>
+    <p>
+      Adicione aqui os achados definitivos após o campo — os mecanismos de inércia
+      identificados, os gatilhos de ação mais frequentes, e como eles se distribuem
+      entre os perfis de participantes.
+    </p>
+    <div class="findings">
+      <div class="finding">
+        <span class="finding-num">01</span>
+        <p class="finding-text">
+          <strong>Mecanismo de inércia identificado.</strong> Descreva aqui o primeiro
+          mecanismo de inércia encontrado na análise — com evidência direta de pelo
+          menos 3 participantes.
+        </p>
+      </div>
+      <div class="finding">
+        <span class="finding-num">02</span>
+        <p class="finding-text">
+          <strong>Gatilho de ação recorrente.</strong> Descreva aqui o gatilho de ação
+          mais frequente identificado, com suporte quantitativo do survey se disponível.
+        </p>
+      </div>
+      <div class="finding">
+        <span class="finding-num">03</span>
+        <p class="finding-text">
+          <strong>Achado de triangulação.</strong> Descreva aqui um achado que emergiu
+          especificamente da triangulação entre os dados qualitativos e quantitativos —
+          algo que não teria aparecido com apenas um dos métodos.
+        </p>
+      </div>
+      <div class="finding">
+        <span class="finding-num">04</span>
+        <p class="finding-text">
+          <strong>Achado inesperado.</strong> Descreva aqui algo que surgiu no campo
+          e contradiz ou adiciona uma hipótese que não estava no plano original.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Entregáveis -->
+  <section class="cs reveal">
+    <p class="cs-label">Entregáveis</p>
+    <h2 class="cs-title">O que foi produzido</h2>
+
+    <div class="img-grid">
+      <div class="img-slot">
+        <span class="img-slot-icon">👥</span>
+        <span class="img-slot-label">Personas Comportamentais</span>
+        <span class="img-slot-note">Adicione print das personas segmentadas por estágio de prontidão</span>
+      </div>
+      <div class="img-slot">
+        <span class="img-slot-icon">🏷️</span>
+        <span class="img-slot-label">Taxonomia de Mecanismos de Inércia</span>
+        <span class="img-slot-note">Adicione print da taxonomia cognitiva/social/estrutural</span>
+      </div>
+      <div class="img-slot wide">
+        <span class="img-slot-icon">📋</span>
+        <span class="img-slot-label">Apresentação Executiva — Readout com Stakeholders</span>
+        <span class="img-slot-note">Adicione print dos slides do readout com stakeholders aqui</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impacto -->
+  <section class="cs reveal">
+    <p class="cs-label">Impacto</p>
+    <h2 class="cs-title">Resultados gerados para o produto</h2>
+    <div class="impact-row">
+      <div class="impact-card">
+        <p class="impact-label">Mecanismos de inércia mapeados</p>
+        <p class="impact-value">Adicione</p>
+        <p class="impact-desc">Número de mecanismos distintos identificados com evidência qualitativa robusta (≥ 3 participantes por mecanismo).</p>
+      </div>
+      <div class="impact-card">
+        <p class="impact-label">Gatilhos de ação identificados</p>
+        <p class="impact-value">Adicione</p>
+        <p class="impact-desc">Gatilhos recorrentes com suporte quantitativo do survey. Internos e externos.</p>
+      </div>
+    </div>
+    <p>
+      Adicione aqui as recomendações acionáveis geradas para o produto, e se possível,
+      a decisão de produto que foi tomada com base nos achados desta pesquisa.
+    </p>
+  </section>
+
+  <!-- Reflexões -->
+  <section class="cs reveal">
+    <p class="cs-label">Reflexões</p>
+    <h2 class="cs-title">O que aprendi nesse projeto</h2>
+    <p>
+      Pesquisar comportamento de saúde é diferente de pesquisar comportamento de produto.
+      O <strong>viés de desejabilidade social é muito mais intenso</strong> — as pessoas
+      tendem a apresentar versões mais racionais das suas decisões do que as que realmente
+      tomaram. As técnicas projetivas e o diary study foram essenciais para acessar
+      o comportamento real, não o narrado.
+    </p>
+    <p>
+      A triangulação de 5 métodos é ambiciosa para um prazo de 10 semanas —
+      o gerenciamento de expectativas com stakeholders foi tão importante quanto
+      o design da pesquisa em si.
+    </p>
+    <p>
+      <em>Adicione aqui outras reflexões pessoais — o que faria diferente,
+      o que te surpreendeu, o que levou para projetos futuros.</em>
+    </p>
+  </section>
+
+</main>
+
+<!-- CASE NAV -->
+<div class="case-nav">
+  <a class="case-nav-link" href="case-agro.html">
+    <span class="case-nav-dir">← Case anterior</span>
+    <span class="case-nav-title">Jornada do Produtor de Soja e Milho</span>
+  </a>
+  <a class="back-all" href="index.html#cases">← Todos os cases</a>
+  <div></div>
+</div>
+
+<script>
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), { passive: true });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
