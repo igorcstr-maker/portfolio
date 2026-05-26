@@ -191,6 +191,55 @@
     }
     .decision-a strong { color: var(--text); font-weight: 400; }
 
+    /* Gallery */
+    .galeria {
+      margin: 3.5rem -2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .galeria-wide {
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+    }
+    .galeria-wide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      transition: transform .7s ease;
+    }
+    .galeria-wide:hover img { transform: scale(1.02); }
+    .galeria-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+    }
+    .galeria-item {
+      overflow: hidden;
+      position: relative;
+      height: 280px;
+    }
+    .galeria-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .7s ease;
+    }
+    .galeria-item:hover img { transform: scale(1.03); }
+    .galeria-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: .6rem 1rem;
+      background: linear-gradient(transparent, rgba(0,0,0,.45));
+      font-size: .65rem;
+      color: rgba(255,255,255,.85);
+      letter-spacing: .06em;
+    }
+
     /* Image slot */
     .img-slot {
       background: var(--bg-s);
@@ -359,6 +408,40 @@
       </div>
     </div>
   </section>
+
+  <hr class="cs-divider">
+
+  <section class="cs reveal">
+    <p class="cs-label">Em Campo</p>
+    <h2 class="cs-title">Goiás, Tocantins e Mato Grosso do Sul</h2>
+    <p>Registros da imersão em campo — entrevistas com produtores, visitas a armazéns e debriefs com a equipe ao longo das três regiões pesquisadas.</p>
+  </section>
+
+  <div class="galeria reveal">
+    <div class="galeria-wide">
+      <img src="img/cliente2.JPEG" alt="Equipe de pesquisa com produtores no campo">
+    </div>
+    <div class="galeria-row">
+      <div class="galeria-item">
+        <img src="img/maquinaagricola.JPEG" alt="Maquinário agrícola no campo">
+        <span class="galeria-caption">Observação em campo — Cerrado</span>
+      </div>
+      <div class="galeria-item">
+        <img src="img/clientesoja1.JPEG" alt="Entrevista com produtor rural">
+        <span class="galeria-caption">Entrevista com produtor</span>
+      </div>
+    </div>
+    <div class="galeria-row">
+      <div class="galeria-item">
+        <img src="img/silos.JPEG" alt="Infraestrutura de armazenagem de grãos">
+        <span class="galeria-caption">Infraestrutura de armazenagem</span>
+      </div>
+      <div class="galeria-item">
+        <img src="img/clientesoja2.JPEG" alt="Reunião com equipe e produtores">
+        <span class="galeria-caption">Síntese de campo</span>
+      </div>
+    </div>
+  </div>
 
   <hr class="cs-divider">
 
