@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jornada do Produtor · Igor de Castro Cunha</title>
+  <title>Pesquisa de Personas · Igor de Castro Cunha</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -33,7 +33,6 @@
       overflow-x: hidden;
     }
 
-    /* NAV */
     nav {
       position: fixed;
       inset: 0 0 auto 0;
@@ -72,7 +71,6 @@
     .nav-back span { transition: transform var(--ease); display: inline-block; }
     .nav-back:hover span { transform: translateX(-3px); }
 
-    /* HERO */
     .case-hero {
       padding: 10rem 2.5rem 6rem;
       border-bottom: 1px solid var(--border);
@@ -116,7 +114,6 @@
     }
     .meta-value { font-size: .88rem; color: var(--text); }
 
-    /* BODY */
     .case-body {
       max-width: var(--max);
       margin: 0 auto;
@@ -147,6 +144,7 @@
     }
     .cs p:last-child { margin-bottom: 0; }
     .cs strong { color: var(--text); font-weight: 400; }
+    .cs em { font-style: italic; }
 
     .cs-divider {
       border: none;
@@ -170,7 +168,6 @@
       margin: 0 !important;
     }
 
-    /* Decisões list */
     .decisions { display: flex; flex-direction: column; gap: 0; margin: 2rem 0; }
     .decision {
       padding: 1.5rem 0;
@@ -182,7 +179,6 @@
       font-weight: 500;
       color: var(--text);
       margin-bottom: .6rem;
-      letter-spacing: .01em;
     }
     .decision-a {
       font-size: .88rem;
@@ -191,7 +187,6 @@
     }
     .decision-a strong { color: var(--text); font-weight: 400; }
 
-    /* Image slot */
     .img-slot {
       background: var(--bg-s);
       border: 1.5px dashed var(--border);
@@ -210,7 +205,6 @@
     .img-slot-label { font-size: .72rem; color: var(--text-2); letter-spacing: .06em; }
     .img-slot-note { font-size: .65rem; color: var(--border); }
 
-    /* CASE NAV */
     .case-nav {
       max-width: var(--max-wide);
       margin: 0 auto;
@@ -258,7 +252,6 @@
     }
     .back-all:hover { color: var(--accent); border-color: var(--accent); }
 
-    /* REVEAL */
     .reveal {
       opacity: 0;
       transform: translateY(22px);
@@ -284,24 +277,24 @@
 
 <header class="case-hero">
   <div class="hero-wrap">
-    <span class="hero-tag">Agro · Blueprint de Serviço · Setor de Insumos Agrícolas</span>
-    <h1 class="hero-title">Jornada do Produtor de Soja e Milho</h1>
+    <span class="hero-tag">Healthtech · Pesquisa de Personas · Diagnóstico do Sono</span>
+    <h1 class="hero-title">Do "Nós Achamos"<br>para o "Nós Sabemos"</h1>
     <div class="hero-meta">
       <div class="meta-item">
         <span class="meta-label">Setor</span>
-        <span class="meta-value">Agronegócio · Insumos</span>
+        <span class="meta-value">Healthtech · Dispositivos Médicos</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Entregável</span>
-        <span class="meta-value">Blueprint de Serviço</span>
+        <span class="meta-value">Personas Validadas</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Métodos</span>
-        <span class="meta-value">Pesquisa de Campo · Entrevistas · Observação</span>
+        <span class="meta-value">Matriz CSD · Entrevistas em Profundidade · Survey · CRM</span>
       </div>
       <div class="meta-item">
-        <span class="meta-label">Região</span>
-        <span class="meta-value">GO · TO · MS</span>
+        <span class="meta-label">Audiência</span>
+        <span class="meta-value">Médicos e Dentistas</span>
       </div>
     </div>
   </div>
@@ -311,11 +304,11 @@
 
   <section class="cs reveal">
     <p class="cs-label">O Problema</p>
-    <h2 class="cs-title">Uma empresa que não sabia como sua operação era vivida pelo cliente</h2>
-    <p>A questão central não era "o que o produtor precisa" — era <strong>onde a jornada quebrava</strong>. A empresa tinha hipóteses comerciais sólidas, mas nenhum mapa que cruzasse a perspectiva do produtor com o que acontecia nos bastidores da operação.</p>
-    <p>Sem esse mapa, decisões de melhoria de serviço eram tomadas a partir de percepções internas. O risco: resolver os problemas errados com precisão.</p>
+    <h2 class="cs-title">Uma estratégia construída sobre o que a empresa achava que sabia</h2>
+    <p>A empresa tinha uma base de clientes ativa, dados de uso e uma equipe comercial experiente. Mas a estratégia de engajamento, comunicação e retenção estava sendo construída sobre <strong>proto-personas criadas internamente</strong> — sem contato sistemático com o mercado real.</p>
+    <p>A questão não era ausência de informação — era ausência de validação. Existiam hipóteses sobre quem era o cliente, o que o motivava e por que ele parava de usar o produto. Mas ninguém havia testado essas hipóteses com o cliente de verdade.</p>
     <div class="cs-quote">
-      <p>A pergunta que orientou o projeto: onde o produtor sente o atrito que a empresa não consegue ver?</p>
+      <p>O que de fato diferencia um profissional que incorpora o produto à rotina de um que abandona?</p>
     </div>
   </section>
 
@@ -323,15 +316,16 @@
 
   <section class="cs reveal">
     <p class="cs-label">Por que esse caminho?</p>
-    <h2 class="cs-title">Por que Blueprint de Serviço — e não só entrevistas</h2>
-    <p>Entrevistas capturam o que o cliente <em>diz</em> que experiencia. Blueprint captura também o que acontece <strong>sem que o cliente veja</strong> — os processos de bastidores que determinam a qualidade do serviço na linha de frente.</p>
-    <p>A escolha foi consequência da pergunta, não o contrário. Se a questão fosse de motivação ou percepção de valor, entrevistas em profundidade seriam suficientes. Mas a questão era de ruptura de jornada — o que exige enxergar o sistema inteiro: cliente, linha de frente e operação.</p>
-    <p>O blueprint funciona como instrumento de alinhamento tanto quanto de descoberta. O processo de construí-lo com o time interno revelou tanto quanto o artefato final — porque torna explícitas as suposições sobre como o serviço funciona, antes de testá-las no campo.</p>
+    <h2 class="cs-title">Por que começar pela Matriz CSD — e não ir direto ao campo</h2>
+    <p>A tentação em projetos de persona é ir logo às entrevistas. Mas sem antes tornar explícito o que a equipe <em>achava</em> que sabia, as entrevistas correm o risco de confirmar vieses existentes em vez de quebrá-los.</p>
+    <p>A Matriz CSD — Certezas, Suposições e Dúvidas — não é uma formalidade. É um instrumento para separar o que a empresa sabe com evidência do que ela assume como verdade. Esse passo transforma hipóteses implícitas em hipóteses explícitas, que podem ser testadas.</p>
+    <p>Só depois de mapear o que a equipe acreditava, fazia sentido ir ao campo para confrontar essa crença com a realidade. <strong>A CSD define o que está sendo testado. As entrevistas testam.</strong></p>
+    <p>A sequência qualitativo → quantitativo também foi uma decisão deliberada. Survey antes das entrevistas mediria as coisas certas com precisão, mas sem saber o que de fato importa perguntar. O qualitativo define as variáveis. O quantitativo verifica a escala.</p>
   </section>
 
   <div class="img-slot reveal">
-    <span class="img-slot-icon">🗺</span>
-    <span class="img-slot-label">Blueprint de serviço — estrutura das camadas</span>
+    <span class="img-slot-icon">🗂</span>
+    <span class="img-slot-label">Matriz CSD — workshop de alinhamento interno</span>
     <span class="img-slot-note">imagem a inserir</span>
   </div>
 
@@ -342,20 +336,20 @@
     <h2 class="cs-title">As escolhas que moldaram a pesquisa</h2>
     <div class="decisions">
       <div class="decision">
-        <p class="decision-q">Por que pesquisa de campo e não dados internos?</p>
-        <p class="decision-a">O agronegócio tem uma lógica que não aparece em sistemas: sazonalidade, relações de confiança, decisões tomadas na porteira. Dados internos registram o que a empresa vê — não o que o produtor vive. Ir ao campo foi uma decisão metodológica, não operacional.</p>
+        <p class="decision-q">Por que segmentar por lógica econômica e não por especialidade?</p>
+        <p class="decision-a">Especialidade é uma variável demográfica. Dois profissionais da mesma especialidade podem ter comportamentos radicalmente diferentes com o produto — porque o que os move é distinto. A hipótese que guiou o projeto: <strong>o diferencial preditivo não é quem a pessoa é, mas qual lógica econômica governa suas decisões</strong>.</p>
       </div>
       <div class="decision">
-        <p class="decision-q">Por que três estados diferentes?</p>
-        <p class="decision-a">Não para ter "representatividade estatística" — pesquisa qualitativa não funciona assim. Mas porque <strong>cada região carrega uma relação diferente com o canal de distribuição</strong>, e essa variação era parte do que precisava ser compreendida.</p>
+        <p class="decision-q">Por que recrutar usuários inativos além dos ativos?</p>
+        <p class="decision-a">Pesquisar só quem usa o produto revela o que funciona — mas não revela o que falhou. O abandono é metade da história. Sem entender o inativo, qualquer persona fica enviesada para o lado do sucesso e deixa de capturar os padrões de churn.</p>
       </div>
       <div class="decision">
-        <p class="decision-q">Por que recrutamento por indicação?</p>
-        <p class="decision-a">Acesso ao produtor rural depende de confiança. Recrutamento aleatório não funciona nesse contexto — não por limitação, mas por adequação ao campo. A indicação foi uma escolha metodológica consciente, não um atalho.</p>
+        <p class="decision-q">Por que triangular fala qualitativa com dados de CRM?</p>
+        <p class="decision-a">Entrevista captura o que o profissional <em>acredita</em> que faz. CRM captura o que ele <em>de fato</em> fez. Os dois têm vieses complementares — e é no cruzamento entre eles que emergem os padrões que nenhuma fonte isolada revela. A triangulação não é redundância: é usar as limitações de cada fonte para compensar as limitações da outra.</p>
       </div>
       <div class="decision">
-        <p class="decision-q">Por que combinar observação com entrevistas?</p>
-        <p class="decision-a">Entrevista captura intenção e memória. Observação captura comportamento real. Em contextos onde o produtor naturaliza práticas ("sempre foi assim"), a observação revela o que a entrevista não alcança.</p>
+        <p class="decision-q">Por que alinhar stakeholders internos antes de ir ao campo?</p>
+        <p class="decision-a">Porque personas sem adesão interna não mudam decisões. Envolver times de produto, vendas, marketing e relacionamento desde a fase de CSD criou corresponsabilidade com os achados — e reduziu a resistência às mudanças estratégicas que vieram depois.</p>
       </div>
     </div>
   </section>
@@ -365,22 +359,22 @@
   <section class="cs reveal">
     <p class="cs-label">Reflexões</p>
     <h2 class="cs-title">O que esse projeto me ensinou</h2>
-    <p>Blueprint de serviço é uma ferramenta de conversa tanto quanto de mapeamento. O valor mais imediato não foi o artefato entregue — foi o momento em que times diferentes da empresa olharam para o mesmo mapa e perceberam que tinham modelos mentais distintos sobre como o serviço funcionava.</p>
-    <p>O que faria diferente: <strong>incluir o canal de distribuição no recrutamento desde o início</strong>, não como descoberta de campo. A relação entre produtor e distribuidor emergiu como uma camada crítica da jornada — e teria sido mais rica se planejada como variável de entrada.</p>
-    <p>Também aprendi que a fidelidade ao artefato pode ser inimiga da clareza. Um blueprint completo é rico para análise, mas difícil de apresentar para quem toma decisão. A versão que gerou ação foi uma versão simplificada, focada nos pontos de ruptura — não no mapa inteiro.</p>
+    <p>Personas eficazes são instrumentos de alinhamento organizacional — não fichas descritivas. O maior valor do projeto não estava nas personas entregues, mas no processo de confrontar visões internas com evidência externa. Sem a fase de CSD, não saberíamos o que realmente precisávamos testar no campo.</p>
+    <p>A descoberta mais estratégica do projeto não estava prevista no escopo inicial. Ela emergiu da triangulação entre fala qualitativa e padrões de CRM — e só foi possível porque as duas fontes foram cruzadas de forma sistemática. <strong>Isso reforçou algo que carrego: os melhores achados raramente aparecem onde você planejou procurar.</strong></p>
+    <p>O que faria diferente: dedicaria mais tempo ao recrutamento dos inativos. Chegar até quem parou de usar é operacionalmente mais difícil — e metodologicamente mais revelador. Subestimar esse esforço no planejamento criou pressão de prazo no momento mais crítico da coleta.</p>
   </section>
 
 </main>
 
 <div class="case-nav">
-  <a class="case-nav-link" href="index.html#cases">
-    <span class="case-nav-dir">&#8592; Voltar</span>
-    <span class="case-nav-title">Todos os cases</span>
+  <a class="case-nav-link" href="case-agro.html">
+    <span class="case-nav-dir">&#8592; Anterior</span>
+    <span class="case-nav-title">Jornada do Produtor</span>
   </a>
   <a class="back-all" href="index.html#cases">Portfólio</a>
-  <a class="case-nav-link right" href="case-personas.html">
+  <a class="case-nav-link right" href="case-healthtech.html">
     <span class="case-nav-dir">Próximo &#8594;</span>
-    <span class="case-nav-title">Pesquisa de Personas</span>
+    <span class="case-nav-title">A Anatomia da Inércia no Diagnóstico de Sono</span>
   </a>
 </div>
 
