@@ -421,20 +421,16 @@
       gap: 5.5rem;
       align-items: start;
     }
-    .monogram {
-      width: 110px; height: 110px;
-      background: var(--accent-lt);
+    .foto-perfil {
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
       margin-bottom: 2.5rem;
-    }
-    .monogram span {
-      font-family: var(--font-d);
-      font-size: 2.2rem;
-      font-weight: 300;
-      color: var(--accent);
+      border: 3px solid var(--accent-lt);
+      filter: grayscale(15%);
     }
     .side-label {
       font-size: .7rem;
@@ -766,7 +762,7 @@
     <div class="sobre-grid">
 
       <div class="reveal">
-        <div class="monogram" aria-hidden="true"><span>IC</span></div>
+        <img class="foto-perfil" src="img/fotoprofissinal.png" alt="Igor de Castro Cunha">
         <p class="side-label">Setores de atuação</p>
         <div class="sectors">
           <div class="sector"><span class="dot"></span>Agronegócio</div>
