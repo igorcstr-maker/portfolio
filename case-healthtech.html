@@ -392,6 +392,24 @@
     .d1 { transition-delay: .08s; }
     .d2 { transition-delay: .16s; }
 
+    /* ── DISCLAIMER BANNER ── */
+    .disclaimer {
+      background: #f4f2ef;
+      border: 1.5px solid var(--accent-lt);
+      border-left: 4px solid var(--accent);
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      max-width: var(--max-wide);
+      margin: 2rem auto 0;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+    .disclaimer-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: .1rem; }
+    .disclaimer-text { font-size: .82rem; color: var(--text-2); line-height: 1.7; }
+    .disclaimer-text strong { color: var(--text); font-weight: 500; }
+
     /* Responsive */
     @media (max-width: 700px) {
       .case-hero { padding: 8rem 1.5rem 4rem; }
@@ -415,7 +433,7 @@
 <!-- HERO -->
 <header class="case-hero">
   <div class="hero-wrap">
-    <span class="hero-tag">Healthtech · Pesquisa Descritiva Mista · 2025</span>
+    <span class="hero-tag">Healthtech · Plano de Pesquisa Modelo · Não executado</span>
     <h1 class="hero-title">Mecanismos de Inércia e Gatilhos de Diagnóstico em Distúrbios do Sono</h1>
     <div class="hero-meta">
       <div class="meta-item">
@@ -438,6 +456,19 @@
   </div>
 </header>
 
+<!-- DISCLAIMER BANNER -->
+<div class="disclaimer">
+  <span class="disclaimer-icon">📌</span>
+  <p class="disclaimer-text">
+    <strong>Este é um plano de pesquisa modelo.</strong>
+    O documento abaixo representa o planejamento metodológico desenvolvido para este projeto —
+    incluindo objetivos, hipóteses, design de métodos e cronograma.
+    <strong>A coleta de dados, entrevistas e análises não foram realizadas.</strong>
+    O plano serve como demonstração da minha abordagem de pesquisa e do rigor aplicado
+    à estruturação de um estudo misto de grande escala.
+  </p>
+</div>
+
 <!-- BODY -->
 <main class="case-body">
 
@@ -446,14 +477,15 @@
     <p class="cs-label">Contexto</p>
     <h2 class="cs-title">O produto em fase de maturidade — e um gargalo invisível</h2>
     <p>
-      O produto de Conversão de Exames de uma healthtech estava em fase de maturidade e
-      enfrentava um gargalo de conversão que <strong>não era puramente comercial</strong>:
-      o problema ocorria antes mesmo do contato do paciente com o sistema de saúde.
+      Este plano foi desenvolvido para um produto de Conversão de Exames de uma healthtech
+      em fase de maturidade, que enfrentava um gargalo de conversão
+      <strong>anterior ao contato do paciente com o sistema de saúde</strong>.
     </p>
     <p>
-      Pacientes com sintomas de apneia e distúrbios do sono reconheciam os sintomas, mas
-      não convertiam esse reconhecimento em busca ativa por diagnóstico. Normalização,
-      postergação, falta de gatilho — o problema estava no comportamento, não no produto.
+      A hipótese central: pacientes com sintomas de apneia e distúrbios do sono reconheciam
+      os sintomas, mas não convertiam esse reconhecimento em busca ativa por diagnóstico.
+      Normalização, postergação, falta de gatilho — o problema estava no comportamento,
+      não no produto. O plano foi estruturado para investigar exatamente esse fenômeno.
     </p>
     <div class="cs-quote">
       <p>"Como podemos entender o que leva uma pessoa a buscar tratamento para distúrbios do sono — e o que a mantém em inércia antes disso?"</p>
@@ -684,42 +716,45 @@
 
   <!-- Principais Achados -->
   <section class="cs reveal">
-    <p class="cs-label">Principais Achados</p>
-    <h2 class="cs-title">O que a pesquisa revelou</h2>
+    <p class="cs-label">Resultados Esperados</p>
+    <h2 class="cs-title">O que o plano previa entregar</h2>
     <p>
-      Adicione aqui os achados definitivos após o campo — os mecanismos de inércia
-      identificados, os gatilhos de ação mais frequentes, e como eles se distribuem
-      entre os perfis de participantes.
+      Como a pesquisa não foi executada, não há achados reais a apresentar.
+      O plano previa, ao final das 10 semanas, a geração dos seguintes outputs
+      a partir da análise triangulada dos dados:
     </p>
     <div class="findings">
       <div class="finding">
         <span class="finding-num">01</span>
         <p class="finding-text">
-          <strong>Mecanismo de inércia identificado.</strong> Descreva aqui o primeiro
-          mecanismo de inércia encontrado na análise — com evidência direta de pelo
-          menos 3 participantes.
+          <strong>Taxonomia de mecanismos de inércia.</strong> Identificação e categorização
+          dos fatores cognitivos, sociais e estruturais que mantêm pacientes sintomáticos
+          sem buscar diagnóstico — com evidência qualitativa de pelo menos 3 participantes
+          por mecanismo.
         </p>
       </div>
       <div class="finding">
         <span class="finding-num">02</span>
         <p class="finding-text">
-          <strong>Gatilho de ação recorrente.</strong> Descreva aqui o gatilho de ação
-          mais frequente identificado, com suporte quantitativo do survey se disponível.
+          <strong>Taxonomia de gatilhos de ação.</strong> Mapeamento dos eventos internos
+          e externos que efetivamente mobilizam pacientes para buscar diagnóstico —
+          validados por suporte quantitativo do survey.
         </p>
       </div>
       <div class="finding">
         <span class="finding-num">03</span>
         <p class="finding-text">
-          <strong>Achado de triangulação.</strong> Descreva aqui um achado que emergiu
-          especificamente da triangulação entre os dados qualitativos e quantitativos —
-          algo que não teria aparecido com apenas um dos métodos.
+          <strong>Personas comportamentais segmentadas.</strong> 2–3 perfis baseados em
+          estágio de prontidão para ação (modelo Prochaska), orientando intervenções
+          específicas para cada segmento de paciente.
         </p>
       </div>
       <div class="finding">
         <span class="finding-num">04</span>
         <p class="finding-text">
-          <strong>Achado inesperado.</strong> Descreva aqui algo que surgiu no campo
-          e contradiz ou adiciona uma hipótese que não estava no plano original.
+          <strong>Recomendações acionáveis de produto.</strong> Backlog de oportunidades
+          priorizadas por impacto, com nível de evidência explícito — direto da
+          triangulação entre dados qualitativos e analytics do produto.
         </p>
       </div>
     </div>
@@ -751,23 +786,27 @@
 
   <!-- Impacto -->
   <section class="cs reveal">
-    <p class="cs-label">Impacto</p>
-    <h2 class="cs-title">Resultados gerados para o produto</h2>
+    <p class="cs-label">Valor do Plano</p>
+    <h2 class="cs-title">O que este planejamento demonstra</h2>
+    <p>
+      Mesmo sem execução, o plano em si tem valor como demonstração de competência metodológica.
+      Ele evidencia a capacidade de:
+    </p>
     <div class="impact-row">
       <div class="impact-card">
-        <p class="impact-label">Mecanismos de inércia mapeados</p>
-        <p class="impact-value">Adicione</p>
-        <p class="impact-desc">Número de mecanismos distintos identificados com evidência qualitativa robusta (≥ 3 participantes por mecanismo).</p>
+        <p class="impact-label">Rigor científico</p>
+        <p class="impact-value">5 métodos</p>
+        <p class="impact-desc">Triangulação de entrevistas, diary study, pesquisa contextual, survey e analytics — com justificativa científica para cada escolha.</p>
       </div>
       <div class="impact-card">
-        <p class="impact-label">Gatilhos de ação identificados</p>
-        <p class="impact-value">Adicione</p>
-        <p class="impact-desc">Gatilhos recorrentes com suporte quantitativo do survey. Internos e externos.</p>
+        <p class="impact-label">Estruturação de hipóteses</p>
+        <p class="impact-value">4 H's</p>
+        <p class="impact-desc">Hipóteses formuladas em estrutura SE/ENTÃO/PORQUE com indicadores mensuráveis — prontas para teste em campo.</p>
       </div>
     </div>
     <p>
-      Adicione aqui as recomendações acionáveis geradas para o produto, e se possível,
-      a decisão de produto que foi tomada com base nos achados desta pesquisa.
+      O plano completo — com roteiro de entrevista, critérios de análise, protocolo ético
+      e cronograma detalhado — está disponível para consulta mediante solicitação.
     </p>
   </section>
 
