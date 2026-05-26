@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Igor de Castro Cunha — UX Researcher especializado em triangulação de métodos e estratégia de produto.">
-  <title>Igor de Castro Cunha — Senior Product Researcher | Mixed-Methods Research | Behavioral Analytics & Product Strategy Insights</title>
+  <title>Igor de Castro Cunha — UX Researcher</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -413,6 +413,68 @@
       color: var(--text-2);
     }
 
+    /* ── LIDERANÇA & OPS ─────────────────────── */
+    #ops { background: var(--bg); }
+    .ops-intro {
+      max-width: 600px;
+      margin-bottom: 4rem;
+    }
+    .ops-intro p {
+      font-size: .95rem;
+      color: var(--text-2);
+      line-height: 1.85;
+      margin-top: 1.25rem;
+    }
+    .ops-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .ops-card {
+      background: var(--bg);
+      padding: 2.25rem;
+      transition: background var(--ease);
+    }
+    .ops-card:hover { background: var(--bg-surface); }
+    .ops-num {
+      font-family: var(--font-d);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--accent-lt);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .ops-title {
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      color: var(--text);
+      margin-bottom: .75rem;
+    }
+    .ops-body {
+      font-size: .88rem;
+      color: var(--text-2);
+      line-height: 1.82;
+    }
+    .ops-body strong { color: var(--text); font-weight: 400; }
+    .ops-tag {
+      display: inline-flex;
+      gap: .4rem;
+      flex-wrap: wrap;
+      margin-top: 1.1rem;
+    }
+    .ops-pill {
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      color: var(--accent);
+      background: rgba(181,105,58,.09);
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+
     /* ── SOBRE ────────────────────────────────── */
     #sobre { background: var(--bg-surface); }
     .sobre-grid {
@@ -561,6 +623,7 @@
       .fw-step { border-top: 1px solid var(--border); border-left: none; padding: 1.75rem 0; }
       .fw-step:not(:first-child) { padding-left: 0; }
       .fw-step:nth-child(1), .fw-step:nth-child(2), .fw-step:nth-child(3) { border-top: none; }
+      .ops-grid { grid-template-columns: 1fr; }
       .sobre-grid { grid-template-columns: 1fr; gap: 3rem; }
       .sectors { flex-direction: row; flex-wrap: wrap; }
     }
@@ -590,6 +653,7 @@
     <li><a href="#home">Início</a></li>
     <li><a href="#framework">Framework</a></li>
     <li><a href="#cases">Cases</a></li>
+    <li><a href="#ops">Liderança</a></li>
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="#contato">Contato</a></li>
   </ul>
@@ -603,6 +667,7 @@
   <a href="#home"      class="ol">Início</a>
   <a href="#framework" class="ol">Framework</a>
   <a href="#cases"     class="ol">Cases</a>
+  <a href="#ops"       class="ol">Liderança</a>
   <a href="#sobre"     class="ol">Sobre</a>
   <a href="#contato"   class="ol">Contato</a>
 </nav>
@@ -610,14 +675,15 @@
 <!-- ── HERO ─────────────────────────────────────── -->
 <section id="home">
   <div class="wrap">
-    <p class="hero-label">Senior UX Researcher</p>
+    <p class="hero-label">UX Researcher</p>
     <h1 class="hero-h1">
       Pesquiso o<br>
       <em>comportamento</em><br>
       humano.
     </h1>
     <p class="hero-p">
-      Conecto ux research, neurociencia e estratégia de produto para que decisões sejam tomadas com evidência, não suposição.
+      Do campo ao relatório, transformo complexidade em evidência —
+      para que produtos cheguem às pessoas certas, da forma certa.
     </p>
     <a href="#cases" class="hero-cta">Ver cases <span aria-hidden="true">→</span></a>
   </div>
@@ -755,13 +821,74 @@
   </div>
 </section>
 
+<!-- ── LIDERANÇA & OPS ──────────────────────────── -->
+<section id="ops">
+  <div class="wrap">
+
+    <div class="ops-intro reveal">
+      <p class="eyebrow">Liderança & Research Ops</p>
+      <h2 class="sec-title">Além da execução:<br>operações, formação e influência estratégica</h2>
+      <p>Conduzir pesquisa é uma parte do trabalho. A outra é construir a infraestrutura que faz a pesquisa escalar — processos, repositórios, capacidade de time e presença onde as decisões são tomadas. Todos os projetos foram apresentados para a diretoria executiva, sem exceção.</p>
+    </div>
+
+    <div class="ops-grid reveal d1">
+
+      <div class="ops-card">
+        <div class="ops-num">01</div>
+        <h3 class="ops-title">ResearchOps Estruturado</h3>
+        <p class="ops-body">Estruturei a orquestração completa dos processos de pesquisa seguindo o modelo NN/g — Participantes, Governança, Conhecimento, Ferramentas, Competência e Advocacy. Implementei <strong>fluxo mensal de recrutamento e realização de testes de usabilidade</strong>, com IA como auxílio em etapas de síntese e triagem.</p>
+        <div class="ops-tag">
+          <span class="ops-pill">NN/g Framework</span>
+          <span class="ops-pill">Recrutamento</span>
+          <span class="ops-pill">Testes de Usabilidade</span>
+          <span class="ops-pill">IA Aplicada</span>
+        </div>
+      </div>
+
+      <div class="ops-card">
+        <div class="ops-num">02</div>
+        <h3 class="ops-title">Repositório de Pesquisa</h3>
+        <p class="ops-body">Estruturei repositórios de insights em <strong>Dovetail e Confluence</strong> — centralizando achados e tornando o conhecimento de pesquisa acessível e reutilizável por produto, design e negócio. A pesquisa deixou de ser um entregável pontual para se tornar um ativo acumulado da organização.</p>
+        <div class="ops-tag">
+          <span class="ops-pill">Dovetail</span>
+          <span class="ops-pill">Confluence</span>
+          <span class="ops-pill">Knowledge Management</span>
+        </div>
+      </div>
+
+      <div class="ops-card">
+        <div class="ops-num">03</div>
+        <h3 class="ops-title">Mentoria de Product Designers</h3>
+        <p class="ops-body">Liderei e treinei Product Designers para conduzir testes de usabilidade com <strong>independência</strong>. Atuei como mentor e suporte — não como executor central. O objetivo era criar capacidade instalada no time de design, não dependência do pesquisador. Resultado: PDs conduzindo ciclos mensais de teste sem necessidade de envolvimento direto em cada sessão.</p>
+        <div class="ops-tag">
+          <span class="ops-pill">Mentoria</span>
+          <span class="ops-pill">Capacitação de Times</span>
+          <span class="ops-pill">Testes de Usabilidade</span>
+        </div>
+      </div>
+
+      <div class="ops-card">
+        <div class="ops-num">04</div>
+        <h3 class="ops-title">Pesquisa para Liderança Executiva</h3>
+        <p class="ops-body">Todos os projetos foram apresentados para a <strong>diretoria executiva</strong> — sem exceção. A pesquisa de personas foi apresentada diretamente ao CEO. Traduzir achados de pesquisa em linguagem estratégica para tomadores de decisão é parte central da minha prática — não uma etapa adicional.</p>
+        <div class="ops-tag">
+          <span class="ops-pill">C-Level</span>
+          <span class="ops-pill">Comunicação Executiva</span>
+          <span class="ops-pill">Influência Estratégica</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── SOBRE ─────────────────────────────────────── -->
 <section id="sobre">
   <div class="wrap">
     <div class="sobre-grid">
 
       <div class="reveal">
-        <img class="foto-perfil" src="fotoprofissional.png" alt="Igor de Castro Cunha">
+        <img class="foto-perfil" src="img/fotoprofissional.png" alt="Igor de Castro Cunha">
         <p class="side-label">Setores de atuação</p>
         <div class="sectors">
           <div class="sector"><span class="dot"></span>Agronegócio</div>
@@ -787,7 +914,7 @@
         <p>
           Minha abordagem combina rigor metodológico com praticidade. Sei que a relação entre
           tempo e profundidade é sempre apertada — por isso meu framework é desenhado para
-          gerar valor alinahndo expectativas, para que fique claro o valor de cada etapa e os trade-offs necessários para ganharmos tempo. Aprofundei esse olhar para o
+          gerar valor rápido, sem abrir mão da evidência. Aprofundei esse olhar para o
           comportamento humano no MBA em <strong>Economia Comportamental pela FGV</strong>,
           integrando ciências comportamentais, neuroeconomia e tomada de decisão às minhas
           práticas de pesquisa.
